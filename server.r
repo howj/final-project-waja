@@ -4,11 +4,11 @@ library(rworldmap)
 
 data <- read.csv("data/malaria_info.csv")
 
-source('./rworldmap/R/mapPolys.R')
-source('./rworldmap/R/rwmCheckAndLoadInput.R')
-source('./rworldmap/R/joinCountryData2Map.R')
-source('./rworldmap/R/getMap.R')
-source('./rworldmap/R/rwmGetISO3.R')
+source('./scripts/mapPolys.R')
+source('./scripts/rwmCheckAndLoadInput.R')
+source('./scripts/joinCountryData2Map.R')
+source('./scripts/getMap.R')
+source('./scripts/rwmGetISO3.R')
 
 sPDF <- joinCountryData2Map(data, joinCode='NAME', nameJoinColumn='Country')
 

@@ -5,3 +5,4 @@ mainPanel(
               tabPanel("Map View", plotOutput("mPlot", height="560px", width="950px"))
   )
 )
+
