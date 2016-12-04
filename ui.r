@@ -7,14 +7,15 @@ mainPanel(
   )
 )
 
+# Panel for the rworldmap map
 shinyUI(navbarPage("Interactive Map of Malaria Deaths by Country",
                    tabPanel("World Map and Malaria Deaths, built with rworldmap",
-                            #
+                            
                             titlePanel("Summary of data by country"),
                             
-                            #
+                            
                             sidebarLayout(
-                              # User can select what data to show
+                              # User can select what data to show, which year of malaria deaths to show
                               sidebarPanel(
                                 selectInput('yearvar', label = 'Select a year',
                                             choices = list("2014 deaths" = "X2014.malaria.deaths",
@@ -32,23 +33,23 @@ shinyUI(navbarPage("Interactive Map of Malaria Deaths by Country",
                                                            "2002 deaths" = "X2002.malaria.deaths",
                                                            "2001 deaths" = "X2001.malaria.deaths",
                                                            "2000 deaths" = "X2000.malaria.deaths"))
-                                #sliderInput("yearvar", "Integer:", 
-                                #           min=2000, max=2014, value=1
                               ),
                               
                               # mainPanel
                               mainPanel(
+                                # Plots the output
                                 plotOutput("mPlot", height="560px", width="950px")
                               )
                             )
                    ),
+                   # Panel for the interactive plotly world map of cases per country
                    tabPanel("Interactive Map of Cases",
-                            #
+                            
                             titlePanel("Malaria Cases per Country"),
                             
-                            #
+                            
                             sidebarLayout(
-                              # User can select what data to show
+                              # User can select what data to show, which year of cases to show
                               sidebarPanel(
                                 selectInput('cases', label = 'Select a year',
                                             choices = list("2014 cases" = "X2014.malaria.cases",

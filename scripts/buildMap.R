@@ -1,9 +1,8 @@
-# BuildMap file: function that returns a plotly map
+# BuildMap file: function that returns a plotly map. Modified from the one provided in class
 library(plotly)
 library(stringr)
 
-# BuildMap function: fill this in with a function that returns a map:
-# Derived from: https://plot.ly/r/choropleth-maps/
+# BuildMap function: Takes a data frame data, a user-decided input of map.var, and returns a plotly map
 
 BuildMap <- function(data, map.var) {
   # light grey boundaries
