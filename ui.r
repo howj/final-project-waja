@@ -1,23 +1,27 @@
 library(shiny)
 library(dplyr)
 
-mainPanel(
-  tabsetPanel(id="tp",
-              tabPanel("Map View", plotOutput("mPlot", height="560px", width="950px"))
-  )
-)
-
 # Panel for the rworldmap map
-shinyUI(navbarPage("Interactive Map of Malaria Deaths by Country",
-                   tabPanel("World Map and Malaria Deaths, built with rworldmap",
+shinyUI(navbarPage("Interactive Map of Malaria Deaths and Cases by Country",
+                   tabPanel("Summary",
+                        h4("Malaria is the number one infectious disease that kills the most people worldwide every year. Although rates of 
+                            infection have decreased over the years from increased prevention and control measures, nearly half the world is still at risk of 
+                            malaria. Due to the significance of this infectious disease, we will be working with datasets of reported deaths and cases from malaria by 
+                            country. The dataset is collected from the World Health Organization (WHO) website, and we accessed it through Global Health Observatory 
+                            data repository in the WHO website. This data contains number of reported deaths and cases from years 2000 to 2014 in 109 countries all across the region. 
+                            This project will explore the prevalence of malaria by country, the spread of malaria over time in the regions, and understand the risk factors 
+                            associated with a high prevalence rate in a country. Someone who is planning to travel to a certain country would be interested in this information so 
+                            he or she can learn the malaria prevalence in the country and therefore plan accordingly.  Furthermore, anyone who would simply like to know the risks and 
+                            impact of malaria in that specific country would find this useful.")    
+                   ),
+                   tabPanel("Interactive Map of Deaths",
                             
-                            titlePanel("Summary of data by country"),
-                            
-                            
+                            titlePanel("Malaria Deaths per Country"),
+
                             sidebarLayout(
-                              # User can select what data to show, which year of malaria deaths to show
+                              # User can select what data to show, which year of cases to show
                               sidebarPanel(
-                                selectInput('yearvar', label = 'Select a year',
+                                selectInput('deaths', label = 'Select a year',
                                             choices = list("2014 deaths" = "X2014.malaria.deaths",
                                                            "2013 deaths" = "X2013.malaria.deaths", 
                                                            "2012 deaths" = "X2012.malaria.deaths",
@@ -37,8 +41,7 @@ shinyUI(navbarPage("Interactive Map of Malaria Deaths by Country",
                               
                               # mainPanel
                               mainPanel(
-                                # Plots the output
-                                plotOutput("mPlot", height="560px", width="950px")
+                                plotlyOutput('mDeaths')
                               )
                             )
                    ),
