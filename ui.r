@@ -4,15 +4,15 @@ library(dplyr)
 # Panel for the rworldmap map
 shinyUI(navbarPage("Interactive Map of Malaria Deaths and Cases by Country",
                    tabPanel("Summary",
-                        h4("Malaria is the number one infectious disease that kills the most people worldwide every year. Although rates of 
-                            infection have decreased over the years from increased prevention and control measures, nearly half the world is still at risk of 
-                            malaria. Due to the significance of this infectious disease, we will be working with datasets of reported deaths and cases from malaria by 
-                            country. The dataset is collected from the World Health Organization (WHO) website, and we accessed it through Global Health Observatory 
-                            data repository in the WHO website. This data contains number of reported deaths and cases from years 2000 to 2014 in 109 countries all across the region. 
-                            This project will explore the prevalence of malaria by country, the spread of malaria over time in the regions, and understand the risk factors 
-                            associated with a high prevalence rate in a country. Someone who is planning to travel to a certain country would be interested in this information so 
-                            he or she can learn the malaria prevalence in the country and therefore plan accordingly.  Furthermore, anyone who would simply like to know the risks and 
-                            impact of malaria in that specific country would find this useful.")    
+                        p(strong("Malaria"),"is the", code("number one"), "infectious disease that kills the most people worldwide every year. Although rates of 
+                            infection have decreased over the years from increased prevention and control measures,", code("nearly half"), "the world is still at risk of 
+                            malaria. Due to the significance of this infectious disease, we will be working with datasets of reported", span("deaths and cases", style = "color:blue"), "from malaria by 
+                            country. The dataset is collected from the", em("World Health Organization (WHO) website"), "and we accessed it through", em("Global Health Observatory"), 
+                            "data repository in the WHO website. This data contains number of reported deaths and cases from years", strong("2000"), "to", strong("2014"), "in", code("109"), 
+                            "countries all across the region. This project will explore", span("the prevalence of malaria by country, the spread of malaria over time in the regions, and understand the risk factors 
+                            associated with a high prevalence rate in a country.", style = "color:blue"), "Someone who is planning to", strong("travel to a certain country"), "would be interested in this information so 
+                            he or she can learn the malaria prevalence in the country and therefore plan accordingly. Furthermore, anyone who would simply like to know the", strong("risks and 
+                            impact of malaria"), "in that specific country would find this useful.")    
                    ),
                    tabPanel("Interactive Map of Deaths",
                             
