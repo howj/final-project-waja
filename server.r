@@ -1,7 +1,9 @@
+# library the packages needed
 library(shiny)
 library(rworldmap)
 library(dplyr)
 
+# Read in data
 data <- read.csv("data/overall_malaria.csv")
 
 source('./scripts/mapPolys.R')
@@ -20,6 +22,8 @@ shinyServer(function(input, output) {
   output$mCases <- renderPlotly({
     return (BuildMap(data, input$cases))
   })
+  
+  # Generates a map of malaria deaths/country built with plotly
   output$mDeaths <- renderPlotly({
     return (BuildMap(data, input$deaths))
   })
