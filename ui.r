@@ -87,12 +87,17 @@ shinyUI(navbarPage("Interactive Map of Malaria Deaths and Cases by Country",
                             sidebarLayout(
                               # User can select what data to show by typing in the name of the country
                               sidebarPanel(
-                                  textInput('search', label = "Find a Country", value = '')
+                                  textInput('search', label = "Enter a country name", value = '')
+
                               ),
                               
                               # mainPanel
                               mainPanel(
-                                plotlyOutput('mChange')
+                                plotlyOutput('mChange'),
+                                br(),
+                                br(),
+                                p("The chart shows the malaria deaths in different countries in years 2000 and 
+                                  2014. The size of the circle shows the decrease in deaths over the four years.")
                               )
                             )
                    ),
