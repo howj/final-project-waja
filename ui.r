@@ -92,8 +92,29 @@ shinyUI(navbarPage("Interactive Map of Malaria Deaths and Cases by Country",
                               
                               # mainPanel
                               mainPanel(
-                                plotlyOutput('mchange')
+                                plotlyOutput('mChange')
+                              )
+                            )
+                   ),
+                   tabPanel("Dataset of Cases and Deaths by Regions",
+                            
+                            sidebarLayout(
+                              # User can select what data to show, which year of cases to show
+                              sidebarPanel(
+                                selectInput("regions", label = 'Select region',
+                                            choices = list("Africa", 
+                                                           "Asia",
+                                                           "Europe",
+                                                           "North America",
+                                                           "South America",
+                                                           "Austrailia")),
+                                            radioButtons("type", label = 'Select the report of:', c("deaths", "cases"))
+                                ),
+                              # mainPanel
+                              mainPanel(
+                                tableOutput('mTable')
                               )
                             )
                    )
+                   
 ))
