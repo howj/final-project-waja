@@ -121,6 +121,26 @@ shinyUI(navbarPage("Interactive Map of Malaria Deaths and Cases by Country",
                                 tableOutput('mTable')
                               )
                             )
+                   ),
+                   # tabPanel for bar plot 
+                   tabPanel("Bar Graph of Mean Cases/Deaths per Region in 2014",
+                            #
+                            titlePanel("Mean Cases/Deaths per Region in 2014"),
+                            
+                            #
+                            sidebarLayout(
+                              # User can select what data to show
+                              sidebarPanel(
+                                selectInput('regionvar', label = 'Select an input...',
+                                            choices = list("Mean Deaths" = "mean.deaths",
+                                                           "Mean Cases" = "mean.cases"))
+                              ),
+                              
+                              # mainPanel
+                              mainPanel(
+                                plotlyOutput('bar')
+                              )
+                            )
                    )
                    
 ))

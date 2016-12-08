@@ -4,6 +4,7 @@ library(dplyr)
 
 # Read in data
 data <- read.csv("data/overall_malaria.csv")
+data.with.zeros <- read.csv("data/overall_malaria_zeros.csv")
 
 source('./scripts/mapPolys.R')
 source('./scripts/rwmCheckAndLoadInput.R')
@@ -13,7 +14,12 @@ source('./scripts/rwmGetISO3.R')
 source('./scripts/buildMap.R')
 source('./scripts/getData.R')
 source('./scripts/buildScatter.R')
+source('./scripts/buildBar.R')
 mdata <- getData(data)
+
+# Summarise data per region
+summary.region <- group_by(data.with.zeros, Region) %>% 
+  summarise(mean.deaths = mean(X2014.malaria.deaths), mean.cases = mean(X2014.malaria.cases))
 
 # Generate the Map 
 shinyServer(function(input, output) {
@@ -46,7 +52,7 @@ shinyServer(function(input, output) {
              "Europe" = europe.countries,
              "North America" = n.amer.countries,
              "South America" = s.amer.countries,
-             "Australia" = austrailia.countries)
+             "Australia" = australia.countries)
     })
     data <- selectInput()
     if (input$type == "cases") {
@@ -54,5 +60,10 @@ shinyServer(function(input, output) {
     } else {
       data <- data %>% select(1, 19:33)
     }
+  })
+  
+  # Make a bar graph for death/cases average per regoin
+  output$bar <- renderPlotly({
+    return(BuildBar(summary.region, input$regionvar))
   })
 })
