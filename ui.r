@@ -85,7 +85,7 @@ shinyUI(navbarPage("Interactive Map of Malaria Deaths and Cases by Country",
                             titlePanel("Decrease in Malaria Deaths over the Years"),
                             
                             sidebarLayout(
-                              # User can select what data to show, which year of cases to show
+                              # User can select what data to show by typing in the name of the country
                               sidebarPanel(
                                   textInput('search', label = "Find a Country", value = '')
                               ),
