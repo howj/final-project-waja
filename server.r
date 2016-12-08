@@ -5,6 +5,9 @@ library(dplyr)
 # Read in data
 data <- read.csv("data/overall_malaria.csv")
 data.with.zeros <- read.csv("data/overall_malaria_zeros.csv")
+# mutate the dataset to contain deaths and cases per 1000 people in the country
+data.with.pop <- mutate(data, malaria.deaths.per.1000 = (X2014.malaria.deaths * (1000/X2014.pop)), 
+               malaria.cases.per.1000 = (X2014.malaria.cases * (1000/X2014.pop)))
 
 source('./scripts/mapPolys.R')
 source('./scripts/rwmCheckAndLoadInput.R')
@@ -65,5 +68,10 @@ shinyServer(function(input, output) {
   # Make a bar graph for death/cases average per regoin
   output$bar <- renderPlotly({
     return(BuildBar(summary.region, input$regionvar))
+  })
+  
+  # Make a map for malaria deaths/cases per 1000 people in each country
+  output$mPer1000<- renderPlotly({
+    return (BuildMap(data.with.pop, input$mPer1000var))
   })
 })

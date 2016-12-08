@@ -27,7 +27,7 @@ BuildMap <- function(data, map.var) {
       z = eval(parse(text = var.equation)), text = ~hover, locations = ~CODE,
       color = eval(parse(text = var.equation)), colors = 'Purples'
     ) %>%
-    colorbar(title = "Number of Cases (M = millions, k = thousands)") %>%
+    colorbar(title = "Number of Cases/Deaths (M = millions, k = thousands)") %>%
     layout(
       title = str_to_title(map.var), 
       geo = g

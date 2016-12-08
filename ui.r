@@ -156,6 +156,29 @@ shinyUI(navbarPage("Interactive Map of Malaria Deaths and Cases by Country",
                                   for Europe, however.")
                               )
                             )
-                   )
-                   
+                   ),
+                   # Panel for the interactive plotly world map of cases/deaths per 1000 people per country in 2014
+                   tabPanel("Interactive Map of Deaths/Cases per 1000",
+                            
+                            titlePanel("Malaria Deaths/Cases per 1000 people per Country in 2014"),
+                            
+                            
+                            sidebarLayout(
+                              # User can select what data to show, which year of cases to show
+                              sidebarPanel(
+                                selectInput('mPer1000var', label = 'Select cases/deaths',
+                                            choices = list("2014 cases per 1000" = "malaria.cases.per.1000",
+                                                           "2014 deaths per 1000" = "malaria.deaths.per.1000"))
+                              ),
+                              
+                              # mainPanel
+                              mainPanel(
+                                plotlyOutput('mPer1000'),
+                                br(),
+                                br(),
+                                p("This map shows the number of deaths/cases per country per 1000 people in 2014.
+                                  Hover over a country to show exact number of cases and other info.")
+                                )
+                            )
+                    )        
 ))
