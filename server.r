@@ -12,6 +12,9 @@ source('./scripts/joinCountryData2Map.R')
 source('./scripts/getMap.R')
 source('./scripts/rwmGetISO3.R')
 source('./scripts/buildMap.R')
+source('./scripts/getData.R')
+source('./scripts/buildScatter.R')
+mdata <- getData(data)
 
 # Creates a new data frame, with codes from the joinContryData2Map file
 sPDF <- joinCountryData2Map(data, joinCode='NAME', nameJoinColumn='Country')
@@ -26,5 +29,10 @@ shinyServer(function(input, output) {
   # Generates a map of malaria deaths/country built with plotly
   output$mDeaths <- renderPlotly({
     return (BuildMap(data, input$deaths))
+  })
+  
+  # Generates a scatter plot of change in malaria deaths/country built with plotly
+  output$mchange <- renderPlotly({
+    return(BuildScatter(mdata, input$search))
   })
 })

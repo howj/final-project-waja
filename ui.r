@@ -1,6 +1,7 @@
 library(shiny)
 library(dplyr)
-
+library(plotly)
+mdata <- read.csv("./data/malaria_data.csv", stringsAsFactors = FALSE)
 # Panel for the rworldmap map
 shinyUI(navbarPage("Interactive Map of Malaria Deaths and Cases by Country",
                    tabPanel("Summary",
@@ -75,6 +76,23 @@ shinyUI(navbarPage("Interactive Map of Malaria Deaths and Cases by Country",
                               # mainPanel
                               mainPanel(
                                 plotlyOutput('mCases')
+                              )
+                            )
+                   ),
+                   # Panel for the interactive plotly scatter plot of change in deaths per country
+                   tabPanel("Scatter Plot of Change in Deaths",
+                            
+                            titlePanel("Decrease in Malaria Deaths over the Years"),
+                            
+                            sidebarLayout(
+                              # User can select what data to show, which year of cases to show
+                              sidebarPanel(
+                                  textInput('search', label = "Find a Country", value = '')
+                              ),
+                              
+                              # mainPanel
+                              mainPanel(
+                                plotlyOutput('mchange')
                               )
                             )
                    )
