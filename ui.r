@@ -42,7 +42,11 @@ shinyUI(navbarPage("Interactive Map of Malaria Deaths and Cases by Country",
                               
                               # mainPanel
                               mainPanel(
-                                plotlyOutput('mDeaths')
+                                plotlyOutput('mDeaths'),
+                                br(),
+                                br(),
+                                p("This map shows the malaria deaths per each country in a specific year from 2000-2014
+                                  . Hover over a country to show exact number of deaths and more info.")
                               )
                             )
                    ),
@@ -75,14 +79,18 @@ shinyUI(navbarPage("Interactive Map of Malaria Deaths and Cases by Country",
                               
                               # mainPanel
                               mainPanel(
-                                plotlyOutput('mCases')
+                                plotlyOutput('mCases'),
+                                br(),
+                                br(),
+                                p("This map shows the malaria cases per each country in a specific year from 2000-2014
+                                  . Hover over a country to show exact number of cases and other info.")
                               )
                             )
                    ),
                    # Panel for the interactive plotly scatter plot of change in deaths per country
                    tabPanel("Scatter Plot of Change in Deaths",
                             
-                            titlePanel("Decrease in Malaria Deaths over the Years"),
+                            titlePanel("Change in Malaria Deaths Between 2014 and 2000"),
                             
                             sidebarLayout(
                               # User can select what data to show by typing in the name of the country
@@ -96,8 +104,10 @@ shinyUI(navbarPage("Interactive Map of Malaria Deaths and Cases by Country",
                                 plotlyOutput('mChange'),
                                 br(),
                                 br(),
-                                p("The chart shows the malaria deaths in different countries in years 2000 and 
-                                  2014. The size of the circle shows the decrease in deaths over the four years.")
+                                p("The chart shows the change in malaria deaths per country from 2000 to 2014.
+                                  The size of the circle shows the magnitude of the decrease in deaths over the 14-year period.
+                                  Hover over the dot to show the deaths in 2000 followed by the deaths in 2014. For some countries,
+                                  the dot will not show up because the WHO data was incomplete (Example: Somalia).")
                               )
                             )
                    ),
@@ -138,7 +148,12 @@ shinyUI(navbarPage("Interactive Map of Malaria Deaths and Cases by Country",
                               
                               # mainPanel
                               mainPanel(
-                                plotlyOutput('bar')
+                                plotlyOutput('bar'),
+                                br(),
+                                br(),
+                                p("This chart shows the mean deaths/cases per region of the world in 2014. See the detailed region tab
+                                  for more info. Hover over a bar to see the exact means. The WHO does not have data for Malaria cases/deaths
+                                  for Europe, however.")
                               )
                             )
                    )

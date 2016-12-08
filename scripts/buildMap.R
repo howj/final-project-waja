@@ -5,6 +5,9 @@ library(stringr)
 # BuildMap function: Takes a data frame data, a user-decided input of map.var, and returns a plotly map
 
 BuildMap <- function(data, map.var) {
+  
+  data$hover <- with(data, paste(Country, '<br>', "Region: ", Region))
+  
   # light grey boundaries
   l <- list(color = toRGB("grey"), width = 0.5)
   
@@ -21,12 +24,12 @@ BuildMap <- function(data, map.var) {
   # Plot
   p <- plot_geo(data) %>%
     add_trace(
-      z = eval(parse(text = var.equation)), text = ~Country, locations = ~CODE,
+      z = eval(parse(text = var.equation)), text = ~hover, locations = ~CODE,
       color = eval(parse(text = var.equation)), colors = 'Purples'
     ) %>%
     colorbar(title = "Number of Cases (M = millions, k = thousands)") %>%
     layout(
-      title = str_to_title(map.var),
+      title = str_to_title(map.var), 
       geo = g
     )
   return(p)
