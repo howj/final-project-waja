@@ -1,6 +1,5 @@
 # library the packages needed
 library(shiny)
-library(rworldmap)
 library(dplyr)
 
 # Read in data
@@ -15,9 +14,6 @@ source('./scripts/buildMap.R')
 source('./scripts/getData.R')
 source('./scripts/buildScatter.R')
 mdata <- getData(data)
-
-# Creates a new data frame, with codes from the joinContryData2Map file
-sPDF <- joinCountryData2Map(data, joinCode='NAME', nameJoinColumn='Country')
 
 # Generate the Map 
 shinyServer(function(input, output) {
