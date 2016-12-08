@@ -99,7 +99,7 @@ shinyUI(navbarPage("Interactive Map of Malaria Deaths and Cases by Country",
                    tabPanel("Dataset of Cases and Deaths by Regions",
                             
                             sidebarLayout(
-                              # User can select what data to show, which year of cases to show
+                              # User can select which region data to show
                               sidebarPanel(
                                 selectInput("regions", label = 'Select region',
                                             choices = list("Africa", 
@@ -107,8 +107,9 @@ shinyUI(navbarPage("Interactive Map of Malaria Deaths and Cases by Country",
                                                            "Europe",
                                                            "North America",
                                                            "South America",
-                                                           "Austrailia")),
-                                            radioButtons("type", label = 'Select the report of:', c("deaths", "cases"))
+                                                           "Australia")),
+                                radioButtons("type", label = 'Select the report of:', c("deaths", "cases")),
+                                helpText("You can select the region and the type of report to see the dataset of the countries in the selected region")
                                 ),
                               # mainPanel
                               mainPanel(

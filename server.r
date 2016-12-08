@@ -42,7 +42,7 @@ shinyServer(function(input, output) {
     europe.countries <- data %>% filter(Region %in% c("Europe"))
     n.amer.countries <- data %>% filter(Region %in% c("North America"))
     s.amer.countries <- data %>% filter(Region %in% c("South America"))
-    austrailia.countries <- data %>% filter(Region %in% c("Australia"))
+    australia.countries <- data %>% filter(Region %in% c("Australia"))
     selectInput <- reactive({
       switch(input$regions, 
              "Africa"= africa.countries,
@@ -50,7 +50,7 @@ shinyServer(function(input, output) {
              "Europe" = europe.countries,
              "North America" = n.amer.countries,
              "South America" = s.amer.countries,
-             "Austrailia" = austrailia.countries)
+             "Australia" = austrailia.countries)
     })
     data <- selectInput()
     if (input$type == "cases") {
