@@ -18,6 +18,6 @@ Using our data viz, the following questions are answered:
 4. What characteristics do countries with a high malaria risk share?
 
 Sources used:
-- [World Health Organization WHO](http://apps.who.int/gho/data/node.main.A1367?lang=en)
-- [The World Bank](http://data.worldbank.org/indicator/SP.POP.TOTL)
+- [World Health Organization, World Malaria Data](http://apps.who.int/gho/data/node.main.A1367?lang=en)
+- [The World Bank, Population by Country](http://data.worldbank.org/indicator/SP.POP.TOTL)
 
