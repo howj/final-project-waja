@@ -1,6 +1,8 @@
 # library the packages needed
 library(shiny)
 library(dplyr)
+library(rworldxtra)
+library(plotly)
 
 # Read in data
 data <- read.csv("data/overall_malaria.csv")
@@ -9,11 +11,6 @@ data.with.zeros <- read.csv("data/overall_malaria_zeros.csv")
 data.with.pop <- mutate(data, malaria.deaths.per.1000 = (X2014.malaria.deaths * (1000/X2014.pop)), 
                malaria.cases.per.1000 = (X2014.malaria.cases * (1000/X2014.pop)))
 
-source('./scripts/mapPolys.R')
-source('./scripts/rwmCheckAndLoadInput.R')
-source('./scripts/joinCountryData2Map.R')
-source('./scripts/getMap.R')
-source('./scripts/rwmGetISO3.R')
 source('./scripts/buildMap.R')
 source('./scripts/getData.R')
 source('./scripts/buildScatter.R')
