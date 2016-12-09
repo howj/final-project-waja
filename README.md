@@ -12,8 +12,12 @@ we aim to answer some questions about malaria.
 
 Using our data viz, the following questions are answered:
 
-1. In what region is Malaria most widespread?
+1. In what region is malaria most widespread?
 2. Which countries have the highest rate of cases/deaths per 1000 people?
 3. What has the general trend of malaria deaths/cases been per country since 2000?
 4. What characteristics do countries with a high malaria risk share?
+
+Sources used:
+- [World Health Organization WHO](http://apps.who.int/gho/data/node.main.A1367?lang=en)
+- [The World Bank](http://data.worldbank.org/indicator/SP.POP.TOTL)
 
