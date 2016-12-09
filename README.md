@@ -7,7 +7,7 @@ This is the repo for our final project. Team members are:
 - Johan How
 - Will Hwang
 
-We created a shiny app using data from the WHO about malaria cases/deaths per country. In our app, 
+We created a shiny app, which can be found [here](https://howj.shinyapps.io/final_project_waja), using data from the WHO about malaria cases/deaths per country. In our app, 
 we aim to answer some questions about malaria.
 
 Using our data viz, the following questions are answered:
